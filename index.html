@@ -23,3 +23,26 @@
 <script src="script.js"></script>
 </body>
 </html>
+<script>
+const webhookURL = "https://discord.com/api/webhooks/1234567890/abcdefghijklmnopqrstuvwxyz";
+
+document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const server = document.getElementById("server").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const idea = document.getElementById("idea").value.trim();
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            content: `🔥 اقتراح جديد 🔥\n\n🏷️ السيرفر: ${server}\n👤 الاسم: ${name}\n💡 الفكرة:\n${idea}`
+        })
+    }).then(() => {
+        const msg = document.getElementById("successMsg");
+        msg.style.display = "block";
+        setTimeout(() => { msg.style.display = "none"; }, 4000);
+        document.getElementById("form").reset();
+    });
+});
+</script>
