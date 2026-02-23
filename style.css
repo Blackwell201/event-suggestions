@@ -1,0 +1,58 @@
+body {
+    background: #0a0a0a;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.container {
+    background: #111;
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 360px;
+    box-shadow: 0 0 25px red, 0 0 50px rgba(255,0,0,0.3);
+    text-align: center;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+h2 { color: red; text-shadow: 0 0 10px red, 0 0 20px red; margin-bottom: 25px; }
+
+input, textarea {
+    width: 100%; padding: 12px; margin: 12px 0; background: #000;
+    border: 2px solid red; border-radius: 10px; color: white; outline: none;
+    box-shadow: 0 0 10px red inset; transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: orange; box-shadow: 0 0 15px orange inset, 0 0 25px orange;
+}
+
+textarea { resize: none; height: 100px; }
+
+button { width: 100%; padding: 14px; background: black; border: 2px solid red;
+border-radius: 12px; color: red; font-weight: bold; cursor: pointer; transition: 0.3s;
+box-shadow: 0 0 10px red; }
+
+button:hover { background: red; color: black; box-shadow: 0 0 20px red, 0 0 40px red; }
+
+#langBtn { width: 120px; margin-bottom: 15px; background: black; border: 2px solid red;
+border-radius: 10px; color: red; font-weight: bold; cursor: pointer; transition: 0.3s; }
+#langBtn:hover { background: red; color: black; }
+
+#successMsg { display: none; margin-top: 15px; padding: 10px; border: 2px solid lime;
+border-radius: 10px; color: lime; background: rgba(0,255,0,0.1); animation: fadeIn 0.5s ease forwards; }
+
+@keyframes fadeIn { from {opacity: 0; transform: translateY(-10px);} to {opacity: 1; transform: translateY(0);} }
+
+@media (max-width: 400px){ .container { width: 90%; padding: 30px 20px; } }
